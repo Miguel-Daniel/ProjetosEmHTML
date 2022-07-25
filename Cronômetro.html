@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antedegemo</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>CRONÔMETRO</h1>
+        <h2>Cronômetro em JavaScript</h2>
+        <p><span id="minutos">00</span>:<span id="segundos">00</span>:<span id="dezenas">00</span>
+        </p>
+        <button id="botao-começar">Começar</button>
+        <button id="botao-parar">Parar</button>
+        <button id="botao-recomeçar">Recomeçar</button>
+        <style>
+
+        </style>
+    </div>
+    <script>
+        window.onload = function () {
+            var segundos = 00;
+            var dezenas = 00;
+            var minutos = 00;
+            var adcminutos = document.getElementById("minutos")
+            var adcsegundos = document.getElementById("segundos")
+            var adcdezenas = document.getElementById("dezenas")
+            var botãocomeçar = document.getElementById('botao-começar');
+            var botãoresetar = document.getElementById('botao-recomeçar');
+            var botãoparar = document.getElementById('botao-parar');
+            var interval;
+
+            botãocomeçar.onclick = function () {
+                clearInterval(interval);
+                interval = setInterval(startTime, 10);
+            }
+
+            botãoparar.onclick = function () {
+                clearInterval(interval);
+            }
+
+            botãoresetar.onclick = function () {
+                clearInterval(interval);
+                dezenas = "00";
+                segundos = "00";
+                minutos = "00"
+                adcsegundos.innerHTML = segundos;
+                adcdezenas.innerHTML = dezenas;
+                adcminutos.innerHTML = minutos;
+            }
+
+            function startTime() {
+                dezenas++;
+
+                if (dezenas <= 9) {
+                    adcdezenas.innerHTML = "0" + dezenas;
+                }
+
+                if (dezenas > 9) {
+                    adcdezenas.innerHTML = dezenas;
+                }
+
+                if (dezenas > 99) {
+                    console.log("segundos");
+                    segundos++
+                    adcsegundos.innerHTML = "0" + segundos;
+                    dezenas = 0;
+                    adcdezenas.innerHTML = "0" + 0;
+                }
+
+                if (segundos > 9) {
+                    adcsegundos.innerHTML = segundos;
+                }
+                if (segundos > 59) {
+                    console.log("minutos");
+                    minutos++
+                    adcminutos.innerHTML = "0" + minutos;
+                    segundos = 0;
+                    adcsegundos.innerHTML = "0" + 0;
+                }
+                if (minutos > 99)
+                    adcminutos.innerHTML = minutos
+            }
+        }
+    </script>
+</body>
+
+</html>

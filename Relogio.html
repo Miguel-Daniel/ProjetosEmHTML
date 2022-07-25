@@ -1,0 +1,90 @@
+<html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+    body {
+        background-image: url('https://img.ifunny.co/images/b6465eea29b8b150b349c4a872171838ffd3828ef73d0bc6ec537081cafbe5a5_1.webp');
+        background-color: #000000;
+        background-size: cover;
+        margin: auto;
+    }
+
+    .clock {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: #ffffff;
+        font-size: 70px;
+        font-family: 'Orbitron', sans-serif;
+        letter-spacing: 20px;
+
+
+
+    }
+
+    #grad {
+        margin: auto;
+        min-height: 300px;
+        /* Aqui voce define o tamanho do degrade */
+        width: 100%;
+        position: top;
+        bottom: 0;
+        /* Para branco, use 255,255,255,0 e 255,255,255,1 */
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.377) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.479) 0%, rgb(0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.541) 0%, rgba(0, 0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+    }
+
+    #grad2 {
+        margin: auto;
+        min-height: 300px;
+        /* Aqui voce define o tamanho do degrade */
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        /* Para branco, use 255,255,255,0 e 255,255,255,1 */
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+    }
+</style>
+
+<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+<div id="grad"></div>
+<div id="grad2"></div>
+<script>
+    function showTime() {
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = " ";
+
+        if (h == 0) {
+            h = 00;
+        }
+
+        if (h > 24) {
+            h = h - 00;
+            session = " ";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+
+        setTimeout(showTime, 1000);
+
+    }
+
+    showTime();
+</script>
+
+</html>
