@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+  background-image: url('https://img.ifunny.co/images/b6465eea29b8b150b349c4a872171838ffd3828ef73d0bc6ec537081cafbe5a5_1.webp');
+  background-color: #000000;
+  background-size: cover;
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  margin: auto;
+}
+
+.clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 5vw; /* Usando uma unidade relativa para o tamanho da fonte */
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2vw; /* Usando uma unidade relativa para o espaçamento entre as letras */
+}
+
+ #grad {
+        margin: auto;
+        min-height: 300px;
+        /* Aqui voce define o tamanho do degrade */
+        width: 100%;
+        position: top;
+        bottom: 0;
+        /* Para branco, use 255,255,255,0 e 255,255,255,1 */
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.377) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.479) 0%, rgb(0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.541) 0%, rgba(0, 0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+    }
+
+    #grad2 {
+        margin: auto;
+        min-height: 300px;
+        /* Aqui voce define o tamanho do degrade */
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        /* Para branco, use 255,255,255,0 e 255,255,255,1 */
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+    }
+
+@media screen and (max-width: 700px) {
+  .clock {
+    top: 15%; /* Posição ajustada para centralizar na parte superior */
+    font-size: 5vw; /* Tamanho da fonte ajustado para dispositivos móveis */
+    letter-spacing: 2vw; /* Espaçamento entre letras ajustado para dispositivos móveis */
+  }
+}
